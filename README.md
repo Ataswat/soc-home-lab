@@ -1,4 +1,4 @@
-# soc-home-lab
+# soc-home-lab - Created by Charl-Antony Atallah
 
 Simulated SOC analyst environment using Windows VM, Sysmon, and Event Viewer to monitor suspicious activity.
 
