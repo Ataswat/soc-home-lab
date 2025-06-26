@@ -1,46 +1,24 @@
-# Incident 001 – Suspicious PowerShell Activity
+# Incident 001 – Suspicious MMC.exe Execution
 
-## Alert Summary  
-- **Source**: SIEM Alert from Sysmon Event ID 1  
-- **Trigger**: Unusual PowerShell process execution by `winword.exe`  
-- **Timestamp**: 2025-06-25 14:03:12
+**Date:** 2025-06-25  
+**Source:** Sysmon Event ID 1 (Process Create)
 
----
+## 🧾 Summary
+A suspicious execution of `mmc.exe` was detected. Although mmc.exe is a legitimate Windows utility, attackers may use it to load malicious snap-ins or run commands via Event Viewer.
 
-## Investigation Steps  
+## 📸 Evidence
 
-### Step 1: Review Sysmon Event ID 1  
-- Found process:  
-  - `powershell.exe -nop -w hidden -enc aQBmACgA...`  
-- Parent process:  
-  - `winword.exe` (Microsoft Word)
+![Sysmon mmc.exe Event](https://raw.githubusercontent.com/Ataswat/soc-home-lab/main/sysmon_event_id1_mmc.png)
 
-### Step 2: Review Process Tree  
-- Suspicious parent-child chain:  
-  - `winword.exe → powershell.exe`  
-- Flags:  
-  - Encoded PowerShell, hidden window, no profile  
-  - Likely macro-based initial access  
+## 🔍 Analysis
+- **Image:** `C:\Windows\System32\mmc.exe`
+- **CommandLine:** `"mmc.exe" "C:\Windows\system32\eventvwr.msc"`
+- **User:** `vboxuser`
+- **Hash:** SHA256...
 
-### Step 3: Check Network Activity (ID 3)  
-- Detected outbound connection to `185.202.1.10` over port 443  
-- Reverse DNS: `unknownhost.xyz`  
-- Not a known business asset  
+## 🔗 MITRE ATT&CK Mapping
+- **T1059** – Command and Scripting Interpreter
+- **T1003** – OS Credential Dumping (if mmc is used with plugins)
 
----
-
-## Assessment  
-This activity resembles **macro-enabled document attack** via phishing.
-
-## Recommendation  
-✅ Escalate to IR team  
-✅ Isolate host  
-✅ Retrieve phishing email sample if available  
-✅ Block domain/IP in firewall
-
----
-
-## Notes  
-- User: `j.smith@company.local`  
-- Host: `HR-WKS-03`  
-- Endpoint did not have EDR alert  
+## 🛡️ Recommendation
+Investigate further if the MMC snap-in used is not common. Apply endpoint restrictions and log parent-child process relationships.
