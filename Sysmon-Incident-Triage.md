@@ -24,7 +24,7 @@ This event was triggered when the Windows Event Viewer was launched (`mmc.exe`),
 - **Image Path:** C:\Windows\System32\mmc.exe  
 - **User:** Win10-LAB\vboxuser  
 
-![Sysmon mmc.exe Event](https://raw.githubusercontent.com/Ataswat/soc-home-lab/main/sysmon_event_mmc.png)
+![Sysmon mmc.exe Event](https://raw.githubusercontent.com/Ataswat/soc-home-lab/main/sysmon_event_id1_mmc.png)
 
 
 ### 2. Filter Key Event IDs  
