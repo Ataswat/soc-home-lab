@@ -8,7 +8,7 @@ A suspicious execution of `mmc.exe` was detected. Although mmc.exe is a legitima
 
 ## 📸 Evidence
 
-![Sysmon mmc.exe Event](https://raw.githubusercontent.com/Ataswat/soc-home-lab/main/sysmon_event_id1_mmc.png)
+![Sysmon mmc.exe Event](../images/sysmon_event_id1_mmc.png)
 
 ## 🔍 Analysis
 - **Image:** `C:\Windows\System32\mmc.exe`
