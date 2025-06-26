@@ -28,12 +28,16 @@ This event was triggered when the Windows Event Viewer was launched (`mmc.exe`),
 
 
 ### 2. Filter Key Event IDs  
-Filter for relevant events:  
-- **1** – Process creation  
-- **3** – Network connection  
-- **11** – File created  
-- **13/14** – Registry object changes  
-- **22** – DNS query  
+Filter for relevant events:
+
+- **1** – Process Create  
+- **3** – Network Connection  
+- **10** – Process Access (can indicate credential dumping)  
+- **11** – File Creation Time Changed  
+- **13** – Registry Value Set  
+- **15** – FileStream Created  
+- **22** – DNS Query  
+  
 
 ### 3. Investigate Suspicious Indicators  
 **For Process Creation (ID 1):**  
