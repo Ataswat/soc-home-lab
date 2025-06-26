@@ -14,7 +14,7 @@ This alert was triggered by an obfuscated PowerShell command using Base64 encodi
 - **User:** `Win10-LAB\vboxuser`  
 - **CommandLine:** `powershell.exe -enc UwB0AGEAcgB0AC0AUwBsAGUAZQBwACAAOwAA==`
 
-![Sysmon PowerShell Encoded Event](https://raw.githubusercontent.com/Ataswat/soc-home-lab/main/sysmon_event_id1_powershell_encoded.png)
+![Sysmon Encoded PowerShell](../images/sysmon_event_id1_powershell_encoded.png)
 
 ---
 
