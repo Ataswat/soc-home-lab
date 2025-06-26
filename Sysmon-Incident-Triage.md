@@ -14,8 +14,18 @@ Help analysts investigate alerts by:
 ## Step-by-Step Triage Workflow  
 
 ### 1. Identify Alert Context  
-- What triggered this review? (e.g., high CPU, alert, user report)  
-- Log source: `Event Viewer > Applications and Services Logs > Microsoft > Windows > Sysmon > Operational`
+This event was triggered when the Windows Event Viewer was launched (`mmc.exe`), which created a new process.
+
+#### Sysmon Event ID 1 – Process Create
+
+- **Timestamp:** 6/25/2025 10:19:06 PM  
+- **Parent Process:** svchost.exe  
+- **Process Created:** mmc.exe (Event Viewer)  
+- **Image Path:** C:\Windows\System32\mmc.exe  
+- **User:** Win10-LAB\vboxuser  
+
+![Sysmon mmc.exe Event](https://raw.githubusercontent.com/Ataswat/soc-home-lab/main/sysmon_event_mmc.png)
+
 
 ### 2. Filter Key Event IDs  
 Filter for relevant events:  
